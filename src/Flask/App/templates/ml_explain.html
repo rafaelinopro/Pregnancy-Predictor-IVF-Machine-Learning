@@ -1,0 +1,167 @@
+<!DOCTYPE HTML>
+<!--
+	Hyperspace by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+	<title>Background ML</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="static/assets/css/main.css" />
+	<noscript>
+		<link rel="stylesheet" href="static/assets/css/noscript.css" />
+	</noscript>
+</head>
+
+<body class="is-preload">
+
+	<!-- Sidebar -->
+	<section id="sidebar">
+		<div class="inner">
+			<nav>
+				<ul>
+					<li><a href="#intro">Los datos</a></li>
+					<li><a href="#limpieza">Limpieza</a></li>
+					<li><a href="#procesado">Procesado</a></li>
+					<li><a href="#modelos">Modelos</a></li>
+					<li><a href="#resultados">Resultados</a></li>
+					<li><a href="#conclusiones">Conclusiones</a></li>
+				</ul>
+			</nav>
+		</div>
+	</section>
+
+	<!-- Wrapper -->
+	<div id="wrapper">
+
+
+		<!-- Intro -->
+		<section id="intro" class="wrapper style1 fullscreen fade-up">
+			<div class="inner">
+				<h1>Los datos</h1>
+				<p>En el siguiente apartado podremos ver el ciclo de vida de los datos, desde su obtención hasta su
+					procesamiento como parte un modelo de aprendizaje automático. <br>Los datos fueron obtenidos de la
+					pagina web de la <a href="https://www.hfea.gov.uk" style="color:whitesmoke">Human Fertilisation and
+						Embryology Authority (HFEA)</a>, entidad que regula la Reproducción Asistida en el Reino Unido.
+					<br>En su pagina web publican datos anónimos de parejas infértiles que han realizado tratamientos
+					reproductivos, y están disponibles para investigación.
+					<br>Los datasets seleccionados son 3, que corresponden a los años 2010-2014 (158.519 y 95
+					feautures), 2015-2016 (337.109 y 95 feautures) y 2017-2018 (169.616 observaciones y 62 features).
+				</p>
+				<ul class="actions">
+					<li><a href="#limpieza" class="button scrolly">Comencemos</a></li>
+				</ul>
+			</div>
+		</section>
+
+		<!-- One -->
+		<section id="limpieza" class="wrapper style2 spotlights">
+			<section class="row">
+				<a href="#" class="image"><img src="static/images/datasets_reducido.jpg" alt=""
+						data-position="center right" style="object-fit: contain; width: 100%; height: 100%;" /></a>
+				<div class="content">
+					<div class="inner">
+						<h2>Acondicionamiento del dataset</h2>
+						<p>Primer análisis. Se concatenan los 3 datasets, previa adecuación de columnas</p>
+					</div>
+				</div>
+			</section>
+			<section class="row">
+				<div class="content">
+					<div class="inner">
+						<h2>Limpieza - EDA</h2>
+						<p>Tratamiento de missing values, strings, object types, etc. </p>
+					</div>
+				</div>
+				<a href="#" class="image"><img src="static/images/eda_reducido.jpg" alt=""
+						data-position="center right" /></a>
+			</section>
+		</section>
+
+		<!-- Two -->
+		<section id="procesado" class="wrapper style3 fade-up">
+			<div class="inner">
+				<h2 style="margin-left: 340px;">Procesado de los datos</h2>
+				<h3>Se aplicaron algunas técnicas para tratar los datos, con el objetivo de hacer mas eficiente el
+					proceso, y optimizar el resultado del modelo: Reducción de columnas, balanceo de target y escalado
+				</h3>
+				<div class="features">
+					<section>
+						<a href="#" class="image"><img src="static/images/procesado_reducido.jpg" alt=""
+							data-position="center right" /></a>
+					</section>
+				</div>
+			</div>
+		</section>
+
+		<!-- Three -->
+
+		<section id="modelos" class="wrapper style2 spotlights">
+			<section class="row">
+				<a href="#" class="image"><img src="static/images/entrenamiento_reducido.jpg" alt=""
+						data-position="center right" style="object-fit: contain; width: 100%; height: 100%;" /> /></a>
+				<div class="content">
+					<div class="inner">
+						<h2>Comparativa de modelos entrenados</h2>
+						<p>Se busca una métrica acorde al problema que estamos resolviendo.
+							<br> En este caso, intentamos reducir al máximo los falsos positivos.
+							<br> Para ello valoramos la Precision, la Especificidad y la Exactitud (Accuracy)
+						</p>
+						<a href="anexos" class="button" style="margin-left: 40px;">Gráficos -
+							Referencias</a>
+					</div>
+				</div>
+			</section>
+		</section>
+
+		<!-- Four -->
+
+		<section id="resultados" class="wrapper style1 fullscreen fade-up">
+			<div class="inner">
+				<h1>Resultados</h1>
+				<a href="#" class="image"><img src="static/images/resultados_reducido.jpg" alt=""
+						data-position="center center" style="margin-left: 150px; margin-top: 30px;" /></a>
+			</div>
+		</section>
+
+		<!-- Conclusiones -->
+		<section id="conclusiones" class="wrapper style1 fullscreen fade-up">
+			<div class="inner">
+				<h1>Conclusiones</h1>
+				<h3>¿Qué problema o necesidad vamos a resolver? ¿Podemos solucionarlo con ML?</h3>
+				<h3>¿Qué solución aporta tu modelo de ML?</h3>
+				<h3>¿Qué modelos has probado?</h3>
+				<h3>¿Cuáles son las métricas mas útiles?</h3>
+				<h3>¿Qué resultados y conclusiones has obtenido?</h3>
+				<h3>¿Cuáles han sido las variables de mayor impacto?</h3>
+				<h3>¿Qué decisiones o acciones te permiten llevar a cabo tu modelo?</h3>
+				<h3>¿Qué consecuencias tiene en negocio?</h3>
+			</div>
+			<ul class="actions">
+				</li>
+					<a href="anexos" class="button" style="margin-left: 30%;">Gráficos -
+						Referencias</a>
+					<a href="/" class="button" style="margin-left: 30px;">Página
+						principal</a>
+				</li>
+			</ul>
+		</section>
+	</div>
+
+
+
+	<!-- Scripts -->
+	<script src="static/assets/js/jquery.min.js"></script>
+	<script src="static/assets/js/jquery.scrollex.min.js"></script>
+	<script src="static/assets/js/jquery.scrolly.min.js"></script>
+	<script src="static/assets/js/browser.min.js"></script>
+	<script src="static/assets/js/breakpoints.min.js"></script>
+	<script src="static/assets/js/util.js"></script>
+	<script src="static/assets/js/main.js"></script>
+
+</body>
+
+</html>
