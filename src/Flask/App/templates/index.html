@@ -1,0 +1,247 @@
+<!DOCTYPE HTML>
+<!--
+	Hyperspace by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+	<title>Pregnancy Predictor</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="static/assets/css/main.css" />
+	<noscript>
+		<link rel="stylesheet" href="static/assets/css/noscript.css" />
+	</noscript>
+</head>
+
+<body class="is-preload">
+
+	<!-- Sidebar -->
+	<section id="sidebar">
+		<div class="inner">
+			<nav>
+				<ul>
+					<li><a href="#intro">Bienvenidos</a></li>
+					<li><a href="#one">Intro</a></li>
+					<li><a href="#two">Demostración Rápida</a></li>
+					<li><a href="#three">Ingreso de datos reales</a></li>
+					<li><a href="#four">Contacto</a></li>
+				</ul>
+			</nav>
+		</div>
+	</section>
+
+	<!-- Wrapper -->
+	<div id="wrapper">
+
+		<!-- Intro -->
+		<section id="intro" class="wrapper style1 fullscreen fade-up">
+			<div class="inner">
+				<h1>Predicción de la ocurrencia de nacidos vivos en tratamientos de Reproducción Asistida</h1>
+				<ul class="actions">
+					<li><a href="ml_explain" class="button">Background ML</a></li>
+				</ul>
+			</div>
+		</section>
+
+		<!-- One -->
+		<section id="one" class="wrapper style2 spotlights">
+			<section>
+				<div class="content">
+					<div class="inner">
+						<h2>Tenemos muchos datos recogidos a través de los años.</h2>
+						<h4>Se desarrolló un modelo de machine learning con mas de 600.000 datos, mediante el cual es
+							posible analizar nuevos casos y emitir una predicción del resultado esperado.<br></h4>
+						<h4> Lo podemos hacer en dos etapas: La primera, antes del inicio del tratamiento. 
+							En la segunda, le agregamos los datos obtenidos durante el propio tratamiento.<br></h4>
+							<h4>Vamos a demostrarlo con 3 ejemplos prácticos, con datos recogidos de casos de parejas infértiles.
+							Selecciona uno de ellos, y mira lo que pasa.</h4>
+						<ul class="actions">
+							<li><a href="#two" class="button scrolly" style="margin-left: 100px">Pruébalo</a></li>
+						</ul>
+					</div>
+				</div>
+				<a href="#" class="image"><img src="{{ url_for('static', filename='images/home_image.jpg') }}" alt=""
+						data-position="center center" /></a>
+			</section>
+		</section>
+
+
+		<!-- Two -->
+		<section id="two" class="wrapper style1 fade-up">
+			<div class="inner">
+				<h4>Ejemplo 1:</h4>
+				<p>Mujer de 28 años, tratamientos previos: No, embarazos previos: No, Hijos vivos: No, factor masculino:
+					Si,
+					Ovocitos recolectados: 10, Ovocitos fecundados: 8, Embriones creados: 6, Embriones transferidos:1,
+					Embriones descongelados:0,
+					: Embriones microinyectados transferidos: 1, Embriones almacenados: 5,
+					Dia de transferencia: 5, ICSI: 1, IVF: 0, Origen semen: Pareja (1)</p>
+				<h4>Ejemplo 2:</h4>
+				<p>Mujer de 25 años, Tratamientos previos: 0, Embarazos previos: 2, Nacimientos vivos previos: 2, Factor ovulatorio: Presente, Factor masculino: Ausente, Óvulos recolectados: 16, Óvulos fecundados: 12, Embriones creados: 12, Embriones transferidos: 1, Embriones descongelados: 0, Embriones microinyectados transferidos: 1, Embriones almacenados: 11, Día de transferencia: 5, ICSI: 1, IVF: 1, Semen de pareja: Sí</p>
+				<h4>Ejemplo 3:</h4>
+				<p>Mujer de 47 años, tratamientos previos 0, emb previos 0, hijos vivos: 0, Factor ovulatorio: Si,
+					Ovocitos recolectados: 0, Ovocitos fecundados: 3, Embriones creados: 2, Embriones transferidos: 1,
+					Embriones descongelados: 0,
+					Embriones microinyectados transferidos: 1, Embriones almacenados: 0,
+					Dia de transferencia: 5, ICSI: 1, IVF: 0, Origen semen: Pareja (1)</p>
+				<h4> Selecciona opcion 1, 2 o 3 y pulsa "Enviar"</h4>
+
+				<section>
+					<form method="post" onsubmit="event.preventDefault(); enviarFormulario();">
+						<input type="number" class="custom-input" id="opcion" min="1" max="3" required
+							style="margin-left: 300px;margin-bottom: 25px; text-align: center; width: 200px;"
+							required>
+						<button type="submit" required style="margin-left: 50px;">Enviar</button>
+						<button id="reloadButton">Limpiar</button>
+					</form>
+
+					<div id="prediccion-result" class="proba proba-uno"></div>
+					<!-- <ul class="actions">
+						<li><a href="/" class="button">Reload</a></li>
+					</ul> -->
+					
+
+					<script>
+						// Obtener la posición actual de desplazamiento vertical antes de recargar la página
+						const scrollPosition = window.scrollY;
+				
+						// Asignar un evento al botón para recargar la página
+						document.getElementById('reloadButton').addEventListener('click', () => {
+							// Recargar la página
+							window.location.reload();
+				
+							// Esperar a que la página se cargue completamente
+							window.addEventListener('load', () => {
+								// Restaurar la posición de desplazamiento vertical
+								window.scrollTo(0, scrollPosition);
+							});
+						});
+					</script>
+
+
+					<script>
+						function enviarFormulario(event) {
+							event.preventDefault();
+
+							const opcionSeleccionada = document.getElementById("opcion").value;
+							let nombreArchivo;
+
+							if (opcionSeleccionada === "1") {
+								nombreArchivo = "sample1";
+							} else if (opcionSeleccionada === "2") {
+								nombreArchivo = "sample2";
+							} else if (opcionSeleccionada === "3") {
+								nombreArchivo = "sample3";
+							} else {
+								// Mostrar mensaje de error o tomar alguna otra acción
+								return;
+							}
+
+							const formulario = document.querySelector('form');
+							formulario.action = "/";
+
+							const nombreArchivoInput = document.createElement("input");
+							nombreArchivoInput.setAttribute("type", "hidden");
+							nombreArchivoInput.setAttribute("name", "nombreArchivo");
+							nombreArchivoInput.setAttribute("value", nombreArchivo);
+							formulario.appendChild(nombreArchivoInput);
+
+							fetch('/', {
+								method: 'POST',
+								body: new FormData(formulario)
+							})
+								.then(response => response.json())
+								.then(data => {
+									const prediccionResult = document.getElementById('prediccion-result');
+									prediccionResult.textContent = data.mensaje;
+								})
+								.catch(error => {
+									// Manejar cualquier error de la solicitud
+									console.error(error);
+								});
+						}
+
+						const formulario = document.querySelector('form');
+						formulario.addEventListener('submit', enviarFormulario);
+					</script>
+				</section>
+			</div>
+		</section>
+
+
+		<!-- Three -->
+		<section id="three" class="wrapper style2 spotlights">
+			<section>
+				<div class="content50">
+					<div class="inner">
+						<h2>Ingreso manual de los datos</h2>
+						<h4>En esta apartado vas a poder probar de introducir los datos uno a uno. Es un ejercicio mas profesional, ya que podria utilizarse en casos reales.<br></h4>
+						<p>Predice <b>antes</b> de iniciar el tratamiento, o predice <b>incluyendo</b> también los datos del propio tratamiento <br></p>
+						<ul class="actions">
+							<li><a href="/input_data_PRE" style="margin-left: 5px; margin-top: 20px;" class="button primary">Pre Tratamiento</a></li>
+							<li><a href="/input_data" style="margin-left: 30px; margin-top: 20px;" class="button primary">Completo</a></li>
+						</ul>
+					</div>
+				</div>
+				<img src="{{ url_for('static', filename='images/qrcode_azure_input_data.png') }}" alt=""
+					data-position="center right" style="margin-left: 150px"/>
+			</section>
+		</section>
+
+		<!-- Four -->
+		<section id="four" class="wrapper style1 fade-up">
+			<div class="inner">
+				<h2>Contacto</h2>
+				<section>
+					<ul class="contact">
+						<li>
+							<h3>Email</h3>
+							<a href="#">r.ortega.obgin@icloud.com</a>
+						</li>
+						<li>
+							<h3>Móvil</h3>
+							<span>(+34) 658595383</span>
+						</li>
+						<li>
+							<h3>Social</h3>
+							<ul class="icons">
+								<li><a href="https://twitter.com/Rafaelino0" class="icon brands fa-twitter"><span
+											class="label">Twitter</span></a>
+								</li>
+								<li><a href="https://github.com/rafaelinopro" class="icon brands fa-github"><span
+											class="label">GitHub</span></a></li>
+								<li><a href="https://www.linkedin.com/in/rafael-ignacio-ortega-cv-datascience-obgin/"
+										class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+			</div>
+		</section>
+
+
+		<!-- Footer -->
+		<footer id="footer" class="wrapper style1-alt">
+			<div class="inner">
+				<ul class="menu">
+					<li>&copy; Untitled. All rights reserved.</li>
+					<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+				</ul>
+			</div>
+		</footer>
+
+		<!-- Scripts -->
+		<script src="static/assets/js/jquery.min.js"></script>
+		<script src="static/assets/js/jquery.scrollex.min.js"></script>
+		<script src="static/assets/js/jquery.scrolly.min.js"></script>
+		<script src="static/assets/js/browser.min.js"></script>
+		<script src="static/assets/js/breakpoints.min.js"></script>
+		<script src="static/assets/js/util.js"></script>
+		<script src="static/assets/js/main.js"></script>
+
+</body>
+
+</html>

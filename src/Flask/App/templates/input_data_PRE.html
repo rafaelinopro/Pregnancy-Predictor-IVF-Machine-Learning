@@ -1,0 +1,290 @@
+<!DOCTYPE HTML>
+<!--
+	Hyperspace by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+	<title>Introducir datos pre tratamiento</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="static/assets/css/main.css" />
+	<noscript>
+		<link rel="stylesheet" href="static/assets/css/noscript.css" />
+	</noscript>
+</head>
+
+<body class="is-preload">
+
+	<!-- Header -->
+	<header id="header">
+		<a href="/" class="title">Rafael Ortega</a>
+		<nav>
+			<ul>
+				<li><a href="/">Home</a></li>
+				<li><a href="input_data_PRE" class="active">Introducir datos</a></li>
+				<li><a href="ml_explain">Background ML</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<!-- Wrapper -->
+	<div id="wrapper">
+
+		<!-- Main -->
+		<section id="main" class="wrapper">
+			<div class="inner">
+				<h1 class="major">Predicción previa al tratamiento</h1>
+			</div>
+		</section>
+		<section id="three" class="wrapper alt spotlights">
+			<section>
+				<div class="content">
+					<div class="inner">
+						<h4>En este apartado podrás introducir datos sobre antecedentes de la paciente y causas de infertilidad.</h4>
+						<h4>Es de interés porque personaliza la probabilidad de embarazo, y puede guiar la toma de decisiones.</h4>
+					</div>
+				</div>
+				<img src="static/images/engranajes_cerebro.jpg" alt="" style="width: 100%; height: 100%;"></span>
+			</section>
+		</section>
+
+		<!-- Form -->
+		<section id="main" class="wrapper">
+			<div class="inner">
+				<h2>Introducción de datos</h2>
+				<form id="formulario" action="/pred_result_PRE" method="post" onsubmit="enviarFormulario()">
+					<div class="row gtr-uniform">
+						<label for="patient-age">Patient age at treatment:</label>
+						<div class="col-6 col-12-xsmall">
+							<select name="patient-age" id="patient-age">
+								<option value="">- Select age -</option>
+								<option value="18">18</option>
+								<option value="19">19</option>
+								<option value="20">20</option>
+								<option value="21">21</option>
+								<option value="22">22</option>
+								<option value="23">23</option>
+								<option value="24">24</option>
+								<option value="25">25</option>
+								<option value="26">26</option>
+								<option value="27">27</option>
+								<option value="28">28</option>
+								<option value="29">29</option>
+								<option value="30">30</option>
+								<option value="31">31</option>
+								<option value="32">32</option>
+								<option value="33">33</option>
+								<option value="34">34</option>
+								<option value="35">35</option>
+								<option value="36">36</option>
+								<option value="37">37</option>
+								<option value="38">38</option>
+								<option value="39">39</option>
+								<option value="40">40</option>
+								<option value="41">41</option>
+								<option value="42">42</option>
+								<option value="43">43</option>
+								<option value="44">44</option>
+								<option value="45">45</option>
+								<option value="46">46</option>
+								<option value="47">47</option>
+								<option value="48">48</option>
+								<option value="49">49</option>
+								<option value="50">50</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="row gtr-uniform">
+						<label for="num-ivf-cycles">Total number of previous IVF cycles:</label>
+						<div class="col-6 col-12-xsmall">
+							<select name="num-ivf-cycles" id="num-ivf-cycles">
+								<option value="">- Select number of cycles -</option>
+								<option value="0">0</option>
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="4">4</option>
+								<option value="3">3</option>
+								<option value="5">5</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="row gtr-uniform">
+						<label for="num-pregnancies">Total number of previous pregnancies - IVF and
+							DI:</label>
+						<div class="col-6 col-12-xsmall">
+							<select name="num-pregnancies" id="num-pregnancies">
+								<option value="">- Select number of pregnancies -</option>
+								<option value="0">0</option>
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+								<option value="6">6</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="row gtr-uniform">
+						<label for="num-live-births">Total number of previous live births - IVF or
+							DI:</label>
+						<div class="col-6 col-12-xsmall">
+							<select name="num-live-births" id="num-live-births">
+								<option value="">- Select number of live births -</option>
+								<option value="0">0</option>
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+								<option value="6">6</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="row gtr-uniform">
+						<label for="infertility-tubal">Causes of infertility - tubal disease:</label>
+						<div class="col-6 col-12-xsmall">
+							<select name="infertility-tubal" id="infertility-tubal">
+								<option value="">- Select cause of infertility -</option>
+								<option value="0">0</option>
+								<option value="1">1</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="row gtr-uniform">
+						<label for="infertility-ovulatory">Causes of infertility - ovulatory
+							disorder:</label>
+						<div class="col-6 col-12-xsmall">
+							<select name="infertility-ovulatory" id="infertility-ovulatory">
+								<option value="">- Select cause of infertility -</option>
+								<option value="0">0</option>
+								<option value="1">1</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="row gtr-uniform">
+						<label for="infertility-male">Causes of infertility - male factor:</label>
+						<div class="col-6 col-12-xsmall">
+							<select name="infertility-male" id="infertility-male">
+								<option value="">- Select cause of infertility -</option>
+								<option value="0">0</option>
+								<option value="1">1</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="row gtr-uniform">
+						<label for="infertility-unexplained">Causes of infertility - patient
+							unexplained:</label>
+						<div class="col-6 col-12-xsmall">
+							<select name="infertility-unexplained" id="infertility-unexplained">
+								<option value="">- Select cause of infertility -</option>
+								<option value="0">0</option>
+								<option value="1">1</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="row gtr-uniform">
+						<label for="infertility-endometriosis">Causes of infertility -
+							endometriosis:</label>
+						<div class="col-6 col-12-xsmall">
+							<select name="infertility-endometriosis" id="infertility-endometriosis">
+								<option value="">- Select cause of infertility -</option>
+								<option value="0">0</option>
+								<option value="1">1</option>
+							</select>
+						</div>
+					</div>
+					<button type="submit" class="button primary" style="margin-left: 40%; margin-top: 30px;">Enviar</button>
+				</form>
+				<button href="input_data_PRE.html" id="reloadButton" style="margin-left: 40%;">Limpiar</button>
+			</div>
+			<script>
+				// Obtener la posición actual de desplazamiento vertical antes de recargar la página
+				const scrollPosition = window.scrollY;
+		
+				// Asignar un evento al botón para recargar la página
+				document.getElementById('reloadButton').addEventListener('click', () => {
+					// Recargar la página
+					window.location.reload();
+		
+					// Esperar a que la página se cargue completamente
+					window.addEventListener('load', () => {
+						// Restaurar la posición de desplazamiento vertical
+						window.scrollTo(0, scrollPosition);
+					});
+				});
+			</script>
+
+
+			<script>
+				function enviarFormulario() {
+					form.preventDefault();
+
+					const form = document.getElementById("form");
+
+					// Obtener los valores de los campos
+					const edadTratamiento = document.getElementById("patient-age").value;
+					const numCiclosIVF = document.getElementById("num-ivf-cycles").value;
+					const numEmbarazosIVFDI = document.getElementById("num-pregnancies").value;
+					const numPartosIVFDI = document.getElementById("num-live-births").value;
+					const causaInfertilidadTubal = document.getElementById("infertility-tubal").value;
+					const causaInfertilidadOvulatoria = document.getElementById("infertility-ovulatory").value;
+					const causaInfertilidadMasculina = document.getElementById("infertility-male").value;
+					const causaInfertilidadSinExplicacion = document.getElementById("infertility-unexplained").value;
+					const causaInfertilidadEndometriosis = document.getElementById("infertility-endometriosis").value;
+					
+					const formulario = document.querySelector('form');
+					formulario.action = "/pred_result_PRE";
+
+					// Crear un objeto con los datos recolectados
+					const datos = {
+						edadTratamiento,
+						numCiclosIVF,
+						numEmbarazosIVFDI,
+						numPartosIVFDI,
+						causaInfertilidadTubal,
+						causaInfertilidadOvulatoria,
+						causaInfertilidadMasculina,
+						causaInfertilidadSinExplicacion,
+						causaInfertilidadEndometriosis,
+					};
+
+					// Enviar el formulario
+					const formulary = document.querySelector('form');
+					formulary.addEventListener('submit', enviarFormulario);
+				}
+			</script>
+
+
+			<!-- Footer -->
+			<footer id="footer" class="wrapper alt">
+				<div class="inner">
+					<ul class="menu">
+						<li>&copy; Untitled. All rights reserved.</li>
+						<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</div>
+			</footer>
+
+			<!-- Scripts -->
+			<script src="static/assets/js/jquery.min.js"></script>
+			<script src="static/assets/js/jquery.scrollex.min.js"></script>
+			<script src="static/assets/js/jquery.scrolly.min.js"></script>
+			<script src="static/assets/js/browser.min.js"></script>
+			<script src="static/assets/js/breakpoints.min.js"></script>
+			<script src="static/assets/js/util.js"></script>
+			<script src="static/assets/js/main.js"></script>
+
+</body>
+
+</html>

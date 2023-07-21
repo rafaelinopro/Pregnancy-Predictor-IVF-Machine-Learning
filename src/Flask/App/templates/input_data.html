@@ -1,0 +1,650 @@
+<!DOCTYPE HTML>
+<!--
+	Hyperspace by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+	<title>Introducir datos</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="static/assets/css/main.css" />
+	<noscript>
+		<link rel="stylesheet" href="static/assets/css/noscript.css" />
+	</noscript>
+</head>
+
+<body class="is-preload">
+
+	<!-- Header -->
+	<header id="header">
+		<a href="/" class="title">Rafael Ortega</a>
+		<nav>
+			<ul>
+				<li><a href="/">Home</a></li>
+				<li><a href="input_data" class="active">Introducir datos</a></li>
+				<li><a href="ml_explain">Background ML</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<!-- Wrapper -->
+	<div id="wrapper">
+
+		<!-- Main -->
+		<section id="main" class="wrapper">
+			<div class="inner">
+				<h1 class="major">Introducción de datos para predicción</h1>
+				<span class="image fit"><img src="static/images/re-evolucion-de-datos.png" alt="" style="width: 100%; height: 50vh;"></span>
+			</div>
+		</section>
+
+
+		<!-- Form -->
+		<section id="main" class="wrapper">
+			<div class="inner">
+				<h2>Introducción de datos</h2>
+				<form id="formulario" action="/pred_results" method="post" onsubmit="enviarFormulario()">
+					<div class="row gtr-uniform">
+						<label for="patient-age">Patient age at treatment:</label>
+						<div class="col-6 col-12-xsmall">
+							<select name="patient-age" id="patient-age">
+								<option value="">- Select age -</option>
+								<option value="18">18</option>
+								<option value="19">19</option>
+								<option value="20">20</option>
+								<option value="21">21</option>
+								<option value="22">22</option>
+								<option value="23">23</option>
+								<option value="24">24</option>
+								<option value="25">25</option>
+								<option value="26">26</option>
+								<option value="27">27</option>
+								<option value="28">28</option>
+								<option value="29">29</option>
+								<option value="30">30</option>
+								<option value="31">31</option>
+								<option value="32">32</option>
+								<option value="33">33</option>
+								<option value="34">34</option>
+								<option value="35">35</option>
+								<option value="36">36</option>
+								<option value="37">37</option>
+								<option value="38">38</option>
+								<option value="39">39</option>
+								<option value="40">40</option>
+								<option value="41">41</option>
+								<option value="42">42</option>
+								<option value="43">43</option>
+								<option value="44">44</option>
+								<option value="45">45</option>
+								<option value="46">46</option>
+								<option value="47">47</option>
+								<option value="48">48</option>
+								<option value="49">49</option>
+								<option value="50">50</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="row gtr-uniform">
+						<label for="num-ivf-cycles">Total number of previous IVF cycles:</label>
+						<div class="col-6 col-12-xsmall">
+							<select name="num-ivf-cycles" id="num-ivf-cycles">
+								<option value="">- Select number of cycles -</option>
+								<option value="0">0</option>
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="4">4</option>
+								<option value="3">3</option>
+								<option value="5">5</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="row gtr-uniform">
+						<label for="num-pregnancies">Total number of previous pregnancies - IVF and
+							DI:</label>
+						<div class="col-6 col-12-xsmall">
+							<select name="num-pregnancies" id="num-pregnancies">
+								<option value="">- Select number of pregnancies -</option>
+								<option value="0">0</option>
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+								<option value="6">6</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="row gtr-uniform">
+						<label for="num-live-births">Total number of previous live births - IVF or
+							DI:</label>
+						<div class="col-6 col-12-xsmall">
+							<select name="num-live-births" id="num-live-births">
+								<option value="">- Select number of live births -</option>
+								<option value="0">0</option>
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+								<option value="6">6</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="row gtr-uniform">
+						<label for="infertility-tubal">Causes of infertility - tubal disease:</label>
+						<div class="col-6 col-12-xsmall">
+							<select name="infertility-tubal" id="infertility-tubal">
+								<option value="">- Select cause of infertility -</option>
+								<option value="0">0</option>
+								<option value="1">1</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="row gtr-uniform">
+						<label for="infertility-ovulatory">Causes of infertility - ovulatory
+							disorder:</label>
+						<div class="col-6 col-12-xsmall">
+							<select name="infertility-ovulatory" id="infertility-ovulatory">
+								<option value="">- Select cause of infertility -</option>
+								<option value="0">0</option>
+								<option value="1">1</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="row gtr-uniform">
+						<label for="infertility-male">Causes of infertility - male factor:</label>
+						<div class="col-6 col-12-xsmall">
+							<select name="infertility-male" id="infertility-male">
+								<option value="">- Select cause of infertility -</option>
+								<option value="0">0</option>
+								<option value="1">1</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="row gtr-uniform">
+						<label for="infertility-unexplained">Causes of infertility - patient
+							unexplained:</label>
+						<div class="col-6 col-12-xsmall">
+							<select name="infertility-unexplained" id="infertility-unexplained">
+								<option value="">- Select cause of infertility -</option>
+								<option value="0">0</option>
+								<option value="1">1</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="row gtr-uniform">
+						<label for="infertility-endometriosis">Causes of infertility -
+							endometriosis:</label>
+						<div class="col-6 col-12-xsmall">
+							<select name="infertility-endometriosis" id="infertility-endometriosis">
+								<option value="">- Select cause of infertility -</option>
+								<option value="0">0</option>
+								<option value="1">1</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="row gtr-uniform">
+						<label for="elective-single-embryo-transfer">Elective single embryo transfer</label>
+						<div class="col-6 col-12-xsmall">
+							<select name="elective-single-embryo-transfer" id="elective-single-embryo-transfer">
+								<option value="">Elective single embryo transfer</option>
+								<option value="0">0</option>
+								<option value="1">1</option>
+							</select>
+						</div>
+					</div>
+					
+					<div class="row gtr-uniform">
+						<label for="fresh-eggs">Fresh eggs collected:</label>
+						<div class="col-6 col-12-xsmall">
+							<select name="fresh-eggs" id="fresh-eggs">
+								<option value="">- Select number of fresh eggs collected -</option>
+								<option value="0">0</option>
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+								<option value="6">6</option>
+								<option value="7">7</option>
+								<option value="8">8</option>
+								<option value="9">9</option>
+								<option value="11">11</option>
+								<option value="12">12</option>
+								<option value="13">13</option>
+								<option value="14">14</option>
+								<option value="15">15</option>
+								<option value="16">16</option>
+								<option value="17">17</option>
+								<option value="18">18</option>
+								<option value="19">19</option>
+								<option value="21">21</option>
+								<option value="22">22</option>
+								<option value="23">23</option>
+								<option value="24">24</option>
+								<option value="25">25</option>
+								<option value="26">26</option>
+								<option value="27">27</option>
+								<option value="28">28</option>
+								<option value="29">29</option>
+								<option value="31">31</option>
+								<option value="32">32</option>
+								<option value="33">33</option>
+								<option value="34">34</option>
+								<option value="35">35</option>
+								<option value="36">36</option>
+								<option value="37">37</option>
+								<option value="38">38</option>
+								<option value="39">39</option>
+								<option value="41">41</option>
+								<option value="42">42</option>
+								<option value="43">43</option>
+								<option value="44">44</option>
+								<option value="45">45</option>
+								<option value="46">46</option>
+								<option value="47">47</option>
+								<option value="48">48</option>
+								<option value="49">49</option>
+								<option value="51">51</option>
+								<option value="52">52</option>
+								<option value="53">53</option>
+								<option value="54">54</option>
+								<option value="55">55</option>
+								<option value="56">56</option>
+								<option value="57">57</option>
+								<option value="58">58</option>
+								<option value="59">59</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="row gtr-uniform">
+						<label for="total-eggs">Total eggs mixed:</label>
+						<div class="col-6 col-12-xsmall">
+							<select name="total-eggs" id="total-eggs">
+								<option value="">- Select total number of mixed eggs -</option>
+								<option value="0">0</option>
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+								<option value="6">6</option>
+								<option value="7">7</option>
+								<option value="8">8</option>
+								<option value="9">9</option>
+								<option value="11">11</option>
+								<option value="12">12</option>
+								<option value="13">13</option>
+								<option value="14">14</option>
+								<option value="15">15</option>
+								<option value="16">16</option>
+								<option value="17">17</option>
+								<option value="18">18</option>
+								<option value="19">19</option>
+								<option value="21">21</option>
+								<option value="22">22</option>
+								<option value="23">23</option>
+								<option value="24">24</option>
+								<option value="25">25</option>
+								<option value="26">26</option>
+								<option value="27">27</option>
+								<option value="28">28</option>
+								<option value="29">29</option>
+								<option value="31">31</option>
+								<option value="32">32</option>
+								<option value="33">33</option>
+								<option value="34">34</option>
+								<option value="35">35</option>
+								<option value="36">36</option>
+								<option value="37">37</option>
+								<option value="38">38</option>
+								<option value="39">39</option>
+								<option value="41">41</option>
+								<option value="42">42</option>
+								<option value="43">43</option>
+								<option value="44">44</option>
+								<option value="45">45</option>
+								<option value="46">46</option>
+								<option value="47">47</option>
+								<option value="48">48</option>
+								<option value="49">49</option>
+								<option value="51">51</option>
+								<option value="52">52</option>
+								<option value="53">53</option>
+								<option value="55">55</option>
+								<option value="56">56</option>
+								<option value="57">57</option>
+								<option value="58">58</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="row gtr-uniform">
+						<label for="total-embryos">Total embryos created:</label>
+						<div class="col-6 col-12-xsmall">
+							<select name="total-embryos" id="total-embryos">
+								<option value="">- Select total number of embryos created -</option>
+								<option value="0">0</option>
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+								<option value="6">6</option>
+								<option value="7">7</option>
+								<option value="8">8</option>
+								<option value="9">9</option>
+								<option value="11">11</option>
+								<option value="12">12</option>
+								<option value="13">13</option>
+								<option value="14">14</option>
+								<option value="15">15</option>
+								<option value="16">16</option>
+								<option value="17">17</option>
+								<option value="18">18</option>
+								<option value="19">19</option>
+								<option value="21">21</option>
+								<option value="22">22</option>
+								<option value="23">23</option>
+								<option value="24">24</option>
+								<option value="25">25</option>
+								<option value="26">26</option>
+								<option value="27">27</option>
+								<option value="28">28</option>
+								<option value="29">29</option>
+								<option value="31">31</option>
+								<option value="32">32</option>
+								<option value="33">33</option>
+								<option value="34">34</option>
+								<option value="35">35</option>
+								<option value="36">36</option>
+								<option value="37">37</option>
+								<option value="38">38</option>
+								<option value="39">39</option>
+								<option value="41">41</option>
+								<option value="42">42</option>
+								<option value="43">43</option>
+								<option value="44">44</option>
+								<option value="45">45</option>
+								<option value="46">46</option>
+								<option value="47">47</option>
+								<option value="48">48</option>
+								<option value="49">49</option>
+								<option value="54">54</option>
+								<option value="55">55</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="row gtr-uniform">
+						<label for="embryos-transferred">Embryos transferred:</label>
+						<div class="col-6 col-12-xsmall">
+							<select name="embryos-transferred" id="embryos-transferred">
+								<option value="">- Select number of embryos transferred -</option>
+								<option value="0">0</option>
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="row gtr-uniform">
+						<label for="total-embryos-thawed">Total embryos thawed:</label>
+						<div class="col-6 col-12-xsmall">
+							<select name="total-embryos-thawed" id="total-embryos-thawed">
+								<option value="">- Select total number of thawed embryos -</option>
+								<option value="0">0</option>
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+								<option value="6">6</option>
+								<option value="7">7</option>
+								<option value="8">8</option>
+								<option value="9">9</option>
+								<option value="11">11</option>
+								<option value="12">12</option>
+								<option value="13">13</option>
+								<option value="14">14</option>
+								<option value="15">15</option>
+								<option value="16">16</option>
+								<option value="17">17</option>
+								<option value="18">18</option>
+								<option value="19">19</option>
+								<option value="21">21</option>
+								<option value="22">22</option>
+								<option value="23">23</option>
+								<option value="24">24</option>
+								<option value="26">26</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="row gtr-uniform">
+						<label for="embryos-micro-injected">Embryos transferred from eggs
+							micro-injected:</label>
+						<div class="col-6 col-12-xsmall">
+							<select name="embryos-micro-injected" id="embryos-micro-injected">
+								<option value="">- Select number of embryos transferred from micro-injected
+									eggs -</option>
+								<option value="0">0</option>
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="row gtr-uniform">
+						<label for="embryos-stored">Embryos stored for use by patient:</label>
+						<div class="col-6 col-12-xsmall">
+							<select name="embryos-stored" id="embryos-stored">
+								<option value="">- Select number of embryos stored for use by patient -
+								</option>
+								<option value="0">0</option>
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+								<option value="6">6</option>
+								<option value="7">7</option>
+								<option value="8">8</option>
+								<option value="9">9</option>
+								<option value="11">11</option>
+								<option value="12">12</option>
+								<option value="13">13</option>
+								<option value="14">14</option>
+								<option value="15">15</option>
+								<option value="16">16</option>
+								<option value="17">17</option>
+								<option value="18">18</option>
+								<option value="19">19</option>
+								<option value="21">21</option>
+								<option value="22">22</option>
+								<option value="23">23</option>
+								<option value="24">24</option>
+								<option value="25">25</option>
+								<option value="26">26</option>
+								<option value="27">27</option>
+								<option value="28">28</option>
+								<option value="29">29</option>
+								<option value="31">31</option>
+								<option value="32">32</option>
+								<option value="33">33</option>
+								<option value="34">34</option>
+								<option value="36">36</option>
+								<option value="37">37</option>
+								<option value="38">38</option>
+								<option value="41">41</option>
+								<option value="42">42</option>
+								<option value="43">43</option>
+								<option value="44">44</option>
+								<option value="45">45</option>
+								<option value="46">46</option>
+								<option value="47">47</option>
+								<option value="48">48</option>
+								<option value="54">54</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="row gtr-uniform">
+						<label for="embryo-transfer-date">Date of embryo transfer:</label>
+						<div class="col-6 col-12-xsmall">
+							<select name="embryo-transfer-date" id="embryo-transfer-date">
+								<option value="">- Select date of embryo transfer -</option>
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+								<option value="6">6</option>
+								<option value="7">7</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="row gtr-uniform">
+						<label for="treatment-ivf">Specific treatment type_IVF:</label>
+						<div class="col-6 col-12-xsmall">
+							<select name="treatment-ivf" id="treatment-ivf">
+								<option value="">- Select specific treatment type -</option>
+								<option value="0">0</option>
+								<option value="1">1</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="row gtr-uniform">
+						<label for="sperm-source">Sperm source_Partner:</label>
+						<div class="col-6 col-12-xsmall">
+							<select name="sperm-source" id="sperm-source">
+								<option value="">- Select sperm source -</option>
+								<option value="0">0</option>
+								<option value="1">1</option>
+							</select>
+						</div>
+					</div>
+					<button type="submit" class="button primary" style="margin-left: 40%; margin-top: 30px;">Enviar</button>
+				</form>
+				<button href="/input_data_PRE" id="reloadButton" style="margin-left: 40%;">Limpiar</button>
+			</div>
+		
+		<script>
+			// Obtener la posición actual de desplazamiento vertical antes de recargar la página
+			const scrollPosition = window.scrollY;
+	
+			// Asignar un evento al botón para recargar la página
+			document.getElementById('reloadButton').addEventListener('click', () => {
+				// Recargar la página
+				window.location.reload();
+	
+				// Esperar a que la página se cargue completamente
+				window.addEventListener('load', () => {
+					// Restaurar la posición de desplazamiento vertical
+					window.scrollTo(0, scrollPosition);
+				});
+			});
+		</script>
+
+			<script>
+				function enviarFormulario() {
+					form.preventDefault();
+
+					const form = document.getElementById("form");
+
+					// Obtener los valores de los campos
+					const edadTratamiento = document.getElementById("patient-age").value;
+					const numCiclosIVF = document.getElementById("num-ivf-cycles").value;
+					const numEmbarazosIVFDI = document.getElementById("num-pregnancies").value;
+					const numPartosIVFDI = document.getElementById("num-live-births").value;
+					const causaInfertilidadTubal = document.getElementById("infertility-tubal").value;
+					const causaInfertilidadOvulatoria = document.getElementById("infertility-ovulatory").value;
+					const causaInfertilidadMasculina = document.getElementById("infertility-male").value;
+					const causaInfertilidadSinExplicacion = document.getElementById("infertility-unexplained").value;
+					const causaInfertilidadEndometriosis = document.getElementById("infertility-endometriosis").value;
+					const electivesingleEmbryoTransfer = document.getElementById("elective-single-embryo-transfer").value;
+					const huevosRecogidos = document.getElementById("fresh-eggs").value;
+					const huevosMezclados = document.getElementById("total-eggs").value;
+					const embrionesCreados = document.getElementById("total-embryos").value;
+					const embrionesTransferidos = document.getElementById("embryos-transferred").value;
+					const embrionesDescongelados = document.getElementById("total-embryos-thawed").value;
+					const embrionesMicroinyectados = document.getElementById("embryos-micro-injected").value;
+					const embrionesAlmacenados = document.getElementById("embryos-stored").value;
+					const fechaTransferenciaEmbriones = document.getElementById("embryo-transfer-date").value;
+					const tratamientoIVF = document.getElementById("treatment-ivf").value;
+					const fuenteEspermatozoides = document.getElementById("sperm-source").value;
+
+					const formulario = document.querySelector('form');
+					formulario.action = "/pred_results_PRE";
+
+					// Crear un objeto con los datos recolectados
+					const datos = {
+						edadTratamiento,
+						numCiclosIVF,
+						numEmbarazosIVFDI,
+						numPartosIVFDI,
+						causaInfertilidadTubal,
+						causaInfertilidadOvulatoria,
+						causaInfertilidadMasculina,
+						causaInfertilidadSinExplicacion,
+						causaInfertilidadEndometriosis,
+						electivesingleEmbryoTransfer,
+						huevosRecogidos,
+						huevosMezclados,
+						embrionesCreados,
+						embrionesTransferidos,
+						embrionesDescongelados,
+						embrionesMicroinyectados,
+						embrionesAlmacenados,
+						fechaTransferenciaEmbriones,
+						tratamientoIVF,
+						fuenteEspermatozoides,
+					};
+
+					// Enviar el formulario
+					const formulary = document.querySelector('form');
+					formulary.addEventListener('submit', enviarFormulario);
+				}
+			</script>
+
+
+			<!-- Footer -->
+			<footer id="footer" class="wrapper alt">
+				<div class="inner">
+					<ul class="menu">
+						<li>&copy; Untitled. All rights reserved.</li>
+						<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</div>
+			</footer>
+
+			<!-- Scripts -->
+			<script src="static/assets/js/jquery.min.js"></script>
+			<script src="static/assets/js/jquery.scrollex.min.js"></script>
+			<script src="static/assets/js/jquery.scrolly.min.js"></script>
+			<script src="static/assets/js/browser.min.js"></script>
+			<script src="static/assets/js/breakpoints.min.js"></script>
+			<script src="static/assets/js/util.js"></script>
+			<script src="static/assets/js/main.js"></script>
+
+</body>
+
+</html>

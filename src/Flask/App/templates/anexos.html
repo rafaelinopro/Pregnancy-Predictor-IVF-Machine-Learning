@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<!--
+	Hyperspace by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+	<title>Background ML</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="static/assets/css/main.css" />
+	<noscript>
+		<link rel="stylesheet" href="static/assets/css/noscript.css" />
+	</noscript>
+</head>
+
+<body class="is-preload">
+
+	<!-- Header -->
+	<header id="header">
+		<a href="index.html" class="title">Rafael Ortega</a>
+		<nav>
+			<ul>
+				<li><a href="/">Home</a></li>
+				<li><a href="input_data" class="active">Introducir datos</a></li>
+				<li><a href="ml_explain">Background ML</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<!-- Wrapper -->
+	<div id="wrapper">
+
+		<!-- Main -->
+		<section id="main" class="wrapper">
+			<div class="inner">
+				<h2>Gráficos</h2>
+				<span class="image fit" style="display: flex; justify-content: center;">
+					<img src="static/images/Confusion_matrix_baseline.png" alt="" style="width: 1200px;margin-top: 50px;" >
+					<img src="static/images/the_winner_model.png" alt="" style="width: 1200px;margin-top: 50px;margin-left: 20px;" >
+				</span>
+				<p> Especificidad (El modelo predice que no habrá embarazo, y acierta): 0,78 % <br>
+					Accuracy (Exactitud) (El modelo predice que si habrá embarazo o no, y acierta): 74,26 %<br>
+					Precision (El modelo predice que sí habrá embarazo, y acierta): 48,04 %<br>
+					El modelo predice que no, pero se equivoca, en realidad se va a quedar embarazada: 18,84 %<br>
+					El modelo predice que se queda embarazada, y se equivoca: 6,9 % (*)<br>
+					<br>
+					(*) Este error es indeseable
+				
+				</p>
+				<span class="image fit" style="display: flex; justify-content: center;">
+					<img src="static/images/baseline_undersampling_33-66.png" alt="" style="width: 800px;" >
+				</span>
+				<p>El modelo seleccionado se entrenó previa reducción de feautures con RFE (Recursive Feauture Election), utilizando como estimado DecisionTreeClassifier.<br>
+				Luego se aplicó un balanceado parcial de un 33% para la clase minoritaria, y de un 66% para la clase mayoritaria.<br>
+				De esta manera se consiguieron las predicciones mas equilibradas. Si se forzaba alguna métrica en particular, la matriz de confusión se despalazaba y caian otras.<br>
+				Entonces, analizamos las opciones tratando de que los falsos positivos se mantengan en un porcentaje aceptable.<br>
+				Como puede verse en el siguiente gráfico, el mejor modelo no lidera la tabla:</p>
+				<span class="image fit" style="display: flex; justify-content: center;"></span>
+					<img src="static/images/best_models_fengineering.png" alt="" style="width: 1000px;margin-left: 100px;" >
+				</span>
+			</div>
+			<div class="inner">
+				<h3>Referencias bibliográficas, como ejemplos de la tendencia actual a investigar en medicina de precisión.</h3>
+					<ul class="alt">
+						<li><blockquote>Liu, X., Chen, Z. & Ji, Y. Construction of the machine 
+							learning-based live birth prediction models for the first in vitro 
+							fertilization pregnant women.<br>
+							BMC Pregnancy Childbirth 23, 476 (2023). <a href="https://doi.org/10.1186/s12884-023-05775-3">https://doi.org/10.1186/s12884-023-05775-3</a></blockquote></li>
+						<li><blockquote>Goyal, A., Kuchana, M. & Ayyagari, K.P.R. Machine learning predicts 
+							live-birth occurrence before in-vitro fertilization treatment.<br>
+							Sci Rep 10, 20925 (2020). <a href="https://doi.org/10.1038/s41598-020-76928-z">https://doi.org/10.1038/s41598-020-76928-z</a></blockquote></li>
+						<li><blockquote>Majumdar, G., Sengupta, A., Narad, P. et al. Deep 
+							Inception-ResNet: A Novel Approach for Personalized Prediction of 
+							Cumulative Pregnancy Outcomes in Vitro Fertilization Treatment (IVF).<br>
+							J Obstet Gynecol India  (2023).<a href="https://doi.org/10.1007/s13224-023-01773-9">https://doi.org/10.1007/s13224-023-01773-9</a></blockquote></li>
+						<li><blockquote>Qiu, J., Li, P., Dong, M. et al. Personalized prediction of live birth prior to the first in vitro fertilization treatment: a machine learning method.<br>
+							J Transl Med 17, 317 (2019). <a href="https://doi.org/10.1186/s12967-019-2062-5">https://doi.org/10.1186/s12967-019-2062-5</a></blockquote></li>
+					</ul>
+				</div>
+			</div>
+		</section>
+
